@@ -2,19 +2,14 @@ package Periodo;
 
 public class Mes {
 
-    private final String[] mensal = {
-            "JANEIRO",
-            "FEVEREIRO",
-            "MARÇO",
-            "ABRIL",
-            "MAIO",
-            "JUNHO",
-            "JULHO",
-            "AGOSTO",
-            "SETEMBRO",
-            "OUTUBRO",
-            "NOVEMBRO",
-            "DEZEMBRO"
-    };
-    
+private String mensal;
+
+    public String getMensal() {
+        return mensal;
+    }
+
+    public void setMensal(String newMensal) {
+        this.mensal = newMensal;
+    }
+
 }
