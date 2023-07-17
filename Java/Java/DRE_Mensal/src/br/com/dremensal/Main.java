@@ -42,7 +42,7 @@ public class Main {
             initialIptu.getIPTU();
 
             Scanner inputIPTU = new Scanner(System.in);
-            System.out.println("\n================\n>> IMPOSTO MENSAL IPTU:R$ ");
+            System.out.print("\n================\n>> IMPOSTO MENSAL IPTU:R$ ");
             double outputIPTU = inputIPTU.nextDouble();
             initialIptu.setIPTU(outputIPTU);
 
@@ -74,6 +74,17 @@ public class Main {
             System.out.print("\n================\n>> CUSTO VARIAVEL MENSAL:R$ ");
             double outputVariableBillCost = inputVariableBillCost.nextDouble();
             initialVariableBillCost.setVariableBillCost(outputVariableBillCost);
+
+
+            System.out.print("\n\n\n\n\n\n================\n ORCAMENTO BRUTO: R$ " + outputBudget + "\n");
+            System.out.print("\n================\n IPTU: R$" + outputIPTU + "\n");
+            System.out.print("\n================\n IPVA: R$ " + outputIPVA + "\n");
+            System.out.print("\n================\n ORCAMENTO LIQUIDO: R$ " + (outputBudget - outputIPTU - outputIPVA) + "\n");
+            System.out.print("\n================\n CUSTO FIXO: R$ " + outputFixedBillCost + "\n");
+            System.out.print("\n================\n CUSTO VARIAVEL: R$ " + outputVariableBillCost + "\n");
+            System.out.print("\n\n\n================\n LUCRO FINAL: R$ " + (outputBudget-outputIPTU-outputIPVA-outputVariableBillCost-outputFixedBillCost) + "\n");
+
+
 
 
 
