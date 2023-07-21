@@ -51,7 +51,7 @@ public class Main {
             initialIpva.getIPVA();
 
             Scanner inputIPVA = new Scanner(System.in);
-            System.out.println("\n================\n>> IMPOSTO MENSAL IPVA:R$ ");
+            System.out.print("\n================\n>> IMPOSTO MENSAL IPVA:R$ ");
             double outputIPVA = inputIPVA.nextDouble();
             initialIpva.setIPVA(outputIPVA);
 
@@ -75,19 +75,53 @@ public class Main {
             double outputVariableBillCost = inputVariableBillCost.nextDouble();
             initialVariableBillCost.setVariableBillCost(outputVariableBillCost);
 
+            //Lucro do final do exercicio
+            double budgetFinal = (outputBudget-outputIPTU-outputIPVA-outputVariableBillCost-outputFixedBillCost);
+            
+            //Apresentação do D.R.E
+            System.out.print("\n\n================\nDEMONSTRAÇÃO DE RESULTADOS DO EXERCICIO DE " + monthEntrance.getMensal());
+            System.out.print("\n================\n ORCAMENTO BRUTO: R$ " + outputBudget + "\n");
+            System.out.print("================\n IPTU: R$" + outputIPTU + "\n");
+            System.out.print("================\n IPVA: R$ " + outputIPVA + "\n");
+            System.out.print("================\n ORCAMENTO LIQUIDO: R$ " + (outputBudget - outputIPTU - outputIPVA) + "\n");
+            System.out.print("================\n CUSTO FIXO: R$ " + outputFixedBillCost + "\n");
+            System.out.print("================\n CUSTO VARIAVEL: R$ " + outputVariableBillCost + "\n");
+            System.out.print("================\n LUCRO FINAL: R$ " + budgetFinal + "\n");
 
-            System.out.print("\n\n\n\n\n\n================\n ORCAMENTO BRUTO: R$ " + outputBudget + "\n");
-            System.out.print("\n================\n IPTU: R$" + outputIPTU + "\n");
-            System.out.print("\n================\n IPVA: R$ " + outputIPVA + "\n");
-            System.out.print("\n================\n ORCAMENTO LIQUIDO: R$ " + (outputBudget - outputIPTU - outputIPVA) + "\n");
-            System.out.print("\n================\n CUSTO FIXO: R$ " + outputFixedBillCost + "\n");
-            System.out.print("\n================\n CUSTO VARIAVEL: R$ " + outputVariableBillCost + "\n");
-            System.out.print("\n\n\n================\n LUCRO FINAL: R$ " + (outputBudget-outputIPTU-outputIPVA-outputVariableBillCost-outputFixedBillCost) + "\n");
-
-
-
-
-
+            //Condição de deposito e investimento --- Apresenta inconsistência, precisa checar
+            if (budgetFinal == 0 || budgetFinal <=250) {
+                double depositBudget = budgetFinal * 1.7;
+                double investBudget = budgetFinal * 0.3;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal >= 251 || budgetFinal <=500) {
+                double depositBudget = budgetFinal * 1.6;
+                double investBudget = budgetFinal * 0.4;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal >=501 || budgetFinal <= 800) {
+                double depositBudget = budgetFinal * 1.5;
+                double investBudget = budgetFinal * 0.5;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal >= 801 || budgetFinal <= 1000) {
+                double depositBudget = budgetFinal * 1.4;
+                double investBudget = budgetFinal * 0.6;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal >=1001 || budgetFinal <= 1500) {
+                double depositBudget = budgetFinal * 1.1;
+                double investBudget = budgetFinal * 0.9;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal >= 1501 || budgetFinal <= 3000) {
+                double depositBudget = budgetFinal * 1.0;
+                double investBudget = budgetFinal * 1.0;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if ( budgetFinal >= 3001 || budgetFinal <= 6000) {
+                double depositBudget = budgetFinal * 0.8;
+                double investBudget = budgetFinal * 1.2;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            } else if (budgetFinal > 6001) {
+                double depositBudget = budgetFinal * 0.5;
+                double investBudget = budgetFinal * 1.5;
+                System.out.println("PELO SEU LUCRO FINAL, RECOMENDO DEPOSITAR: R$" + depositBudget + " E INVESTIR: R$" + investBudget);
+            }
 
 
         }
